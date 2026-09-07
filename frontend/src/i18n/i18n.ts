@@ -23,7 +23,7 @@ i18n
   .init({
     resources,
     // デフォルト言語
-    fallbackLng: "ja",
+    fallbackLng: "en",
     // デバッグオプション（開発時のみtrueにする）
     debug: process.env.NODE_ENV === "development",
 
