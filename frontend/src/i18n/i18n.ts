@@ -2,7 +2,7 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 
-// 言語リソースファイルのインポート
+// Import language resource files
 import jaTranslation from "./locales/ja.json";
 import enTranslation from "./locales/en.json";
 
@@ -16,33 +16,33 @@ const resources = {
 };
 
 i18n
-  // 言語検出機能を使用
+  // Use language detection
   .use(LanguageDetector)
-  // react-i18nextのプラグインを使用
+  // Use react-i18next plugin
   .use(initReactI18next)
   .init({
     resources,
-    // デフォルト言語
+    // Default language
     fallbackLng: "en",
-    // デバッグオプション（開発時のみtrueにする）
+    // Debug option, true only during development
     debug: process.env.NODE_ENV === "development",
 
     interpolation: {
-      // Reactを使用しているため、XSSインジェクションを心配する必要はない
+      // React already escapes values, so this is not needed
       escapeValue: false,
     },
 
-    // 言語検出のオプション
+    // Language detection options
     detection: {
-      // 言語検出の順序
+      // Language detection order
       order: ["localStorage", "navigator"],
-      // localStorage内のキー名
+      // Key name in localStorage
       lookupLocalStorage: "i18nextLng",
-      // ユーザーの言語設定を保存
+      // Save the user's language setting
       caches: ["localStorage"],
     },
 
-    // 初期化時に翻訳がロードされるまで待機
+    // Wait until translations are loaded during initialization
     initImmediate: false,
   });
 
